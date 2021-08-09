@@ -21,11 +21,11 @@ const game = window.game = {
 
     init: function () {
         this.asset = new Asset();
+        this.asset.load();
         this.asset.on('complete', () => {
             this.asset.off('complete');
             this.initStage();
         });
-        this.asset.load();
     },
 
     initStage: function () {
@@ -59,18 +59,18 @@ const game = window.game = {
                 this.gameReadyScene.visible = false;
                 this.holdbacks.startMove();
             }
-            if (this.state ==='playing') {
+            if (this.state === 'playing') {
                 this.bird.startFly();
             }
         });
 
         //舞台更新
         this.stage.onUpdate = () => {
-            //todo
+            // TODO
             if (this.state === 'playing' && this.bird.isDead) {
                 this.gameOver();
             }
-            this.currentScore.setText(this.calcScore);
+            this.currentScore.setText(this.calcScore());
         }
 
         //初始化

@@ -81,6 +81,7 @@ const Holdbacks = Hilo.Class.create({
         //下面障碍在y轴的最下的位置
         const downMaxY = this.groundY - 180;
         //在downMinY和downMaxY之间随机位置
+        // TODO: 将 verticalPos 的数值改为 downMaxY 和 downMinY 之间的随机数
         const verticalPos = Math.random() * (downMaxY - downMinY) + downMinY;
         down.y = verticalPos >> 0;
         down.x = this.hoseWidth * index;

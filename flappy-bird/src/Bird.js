@@ -48,13 +48,13 @@ const Bird = Hilo.Class.create({
     onUpdate: function () {
         if (this.isDead) return;
 
-        const time = (+new Data()) - this.flyStartTime;
+        const time = (+new Date()) - this.flyStartTime;
 
         const dist = this.initVelocity * time - 0.5 * this.gravity * time * time;
-        
-        if (this.flyStartY - dist <= this.groundY)
+
+        if (this.flyStartY - dist <= this.groundY) {
             this.y = this.flyStartY - dist;
-        else {
+        } else {
             this.y = this.groundY;
             this.isDead = true;
         }
